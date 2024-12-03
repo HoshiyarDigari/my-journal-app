@@ -1,0 +1,34 @@
+<!-- this is the main landing page for the journal app -->
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="pageHeading"> 
+        <p>welcome to the journal App</p>
+    </div>
+    <div class="journalEntries">
+        <form id="newJournal" action="/user/journals" method="POST">
+            <input name="journalDate" type="date" /required>
+            <input name="journalTime" type="time">
+            <textarea name="journalText" rows="10" cols="50" /required ></textarea>
+            <input type="submit">
+        </form>
+    </div>
+    <div id="previousEntries" class="journalEntries">
+        <!-- we want to display the journals datewise starting with current date -->
+        <!-- the current_date was not getting set due to scoping issue, we use jinja2 template namespace feature ot create mutable objects, so we can compare the dates accross iterations of the for loop -->
+        {% set ns = namespace(current_date = '') %}
+        {% for journal in journals %}
+            {% if journal.date_str != ns.current_date%}
+                <!-- group by date , this h3 will only print once for a specific date-->
+                 <h3>{{journal.date_str}}</h3> 
+                {% set ns.current_date = journal.date_str %}
+            {% endif %}
+            <!-- display the timewise journals for this day -->
+            <p class="journalTime">
+                <strong>Time:</strong>{{journal.time}}<br>
+                <span class="journalText"> {{journal.text}} </span>
+            </p>
+
+       {% endfor %}
+    </div>
+{% endblock %}

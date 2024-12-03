@@ -1,0 +1,22 @@
+<!-- This file is the template for a new page, this takes care of header and footer for the webpages -->
+<!DOCTYPE html >
+<html lang="en">
+    <head>
+        <meta charset="utf-8" lang="en">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>My Life Story</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+        {% block head %}
+        <!-- enter head items in the child pages -->
+        {% endblock %}
+    </head>
+    <body style="display: flex; flex-direction: column; gap: 20px; align-items: self-start;">
+        {% block body %}
+        <!-- enter body in the child pages -->
+        {% endblock %}
+
+    </body>
+    <footer>
+        <p style="position: fixed; top: 95vh;">Developed by Hoshiyar Digari (hoshiyarsingh@gmail.com)</p>
+    </footer>
+</html>
