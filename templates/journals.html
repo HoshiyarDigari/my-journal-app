@@ -3,10 +3,10 @@
 
 {% block body %}
     <div class="pageHeading"> 
-        <p>welcome to the journal App</p>
+        <p>Welcome, Whats Happening?</p>
     </div>
     <div class="journalEntries">
-        <form id="newJournal" action="/user/journals" method="POST">
+        <form id="newJournal" action="/journal" method="POST">
             <input name="journalDate" type="date" /required>
             <input name="journalTime" type="time">
             <textarea name="journalText" rows="10" cols="50" /required ></textarea>
@@ -20,14 +20,14 @@
         {% for journal in journals %}
             {% if journal.date_str != ns.current_date%}
                 <!-- group by date , this h3 will only print once for a specific date-->
-                 <h3>{{journal.date_str}}</h3> 
+                 <br><br><h3>{{journal.date_str}}</h3> 
                 {% set ns.current_date = journal.date_str %}
             {% endif %}
             <!-- display the timewise journals for this day -->
-            <p class="journalTime">
-                <strong>Time:</strong>{{journal.time}}<br>
-                <span class="journalText"> {{journal.text}} </span>
-            </p>
+            <span class="journalText">
+                <strong>Time:{{journal.time}}</strong><br>
+                 {{journal.text}} 
+            </span>
 
        {% endfor %}
     </div>
