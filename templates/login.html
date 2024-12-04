@@ -2,12 +2,14 @@
 
 {% block body %}
     <div class="journalEntries">
-        <form id="loginForm" action="/login" method="POST">
+        <form id="loginForm" action="/user/login" method="POST">
             <label for="username">Username</label>
             <input type="email" name="username" /required>
             <label for="password">Password</label>
             <input type="password" name="password" /required>
-            <input type="submit">
-        </form>
+            <input type="submit" value="Login" name="login">
+            <input type="submit" name="sign-up" value="Sign Up">
+            </form>
+        
     </div>
 {% endblock %}
