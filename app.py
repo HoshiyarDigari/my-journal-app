@@ -1,8 +1,6 @@
 # journal app basic entry file
-from flask import Flask, render_template, request, jsonify
-from models import Journal, db
-from datetime import date, time, datetime
-from sqlalchemy import desc
+from flask import Flask
+from models import  db
 from journals import journals_bp
 
 app = Flask(__name__)
