@@ -3,7 +3,6 @@
 
 {% block head %}
     <script src="{{url_for('static', filename='js/journal.js')}}"></script>
-    <h3>add this</h3>
 {% endblock %}
 
 {% block body %}
@@ -11,9 +10,9 @@
         <p>welcome to the journal App</p>
     </div>
     <div class="journalEntries">
-        <form id="newJournal" action="/user/journals" method="POST">
-            <input name="journalDate" id="journalDate" type="date" value="2024-12-30" /required>
-            <input name="journalTime" type="time">
+        <form id="newJournal" action="/journal" method="POST">
+            <input name="journalDate" id="journalDate" type="date"  /required>
+            <input name="journalTime" id="journalTime" type="time">
             <textarea name="journalText" rows="10" cols="50" /required ></textarea>
             <input type="submit">
         </form>

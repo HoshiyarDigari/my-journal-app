@@ -1,0 +1,6 @@
+1. 'DOMContentLoaded' is the event to use with addEventListener to trigger JS function after page is loaded
+example:
+addEventListener('DOMContentLoaded', setDate)
+function setDate(){}
+
+2. We should only specify function name setDate and not setDate(), the latter will call the function right away. We just need to pass the function's reference.
