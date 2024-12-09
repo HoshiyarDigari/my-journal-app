@@ -4,9 +4,9 @@ from datetime import date, time, datetime
 from sqlalchemy import desc
 
 
-user_bp = Blueprint('user', __name__)
+journals_bp = Blueprint('journals', __name__)
 
-@user_bp.route('/journals', methods=['GET', 'POST'])
+@journals_bp.route('/', methods=['GET', 'POST'])
 def journals():
     if request.method == 'GET':
         return render_template('journals.html')
