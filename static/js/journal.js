@@ -11,9 +11,8 @@ function setDateTime(){
     document.getElementById('journalDate').value = formattedDate;
     
     //get only the hour and minute for use with journalTime input
-    formattedTime = today.toLocaleTimeString('en-US',{hour:'2-digit', minute:'2-digit', hour12:false});
-  
-
+    formattedTime = today.toLocaleTimeString('en-US',{hour:'2-digit', minute:'2-digit', hour12:false});  
+    // set JournalTime 
     document.getElementById('journalTime').value = formattedTime;
     
     

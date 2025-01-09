@@ -22,7 +22,7 @@ def journals():
             db.session.commit()
         except Exception as e:
             return 'error while adding journal', 500
-        # query db for all of existing journals and return them sorted with last entry first
+    # query db for all of existing journals and return them sorted with last entry first
     journals=Journal.query.order_by(desc(Journal.date),Journal.time).all()
     # we need to format date in journal to string so it can be used in jinja2 template to group by day
     for journal in journals:

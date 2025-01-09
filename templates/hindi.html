@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Hindi practice</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/hindi.css')}}">
+    <script src="{{url_for('static', filename='js/hindi.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+    <h2>Learn Hindi
+        <!-- <br>हिंदी सीखें -->
+    </h2>
+    <div id="letterTiles">
+        <div class="tileSection">
+            <h3>Vowels</h3>
+        </div>
+        <div >
+            {% for vowel in vowels %}
+                <span class="tile" onclick="letterTracing('{{vowel}}')">{{vowel}}</span>
+            {% endfor %}
+        </div>
+        <div class="tileSection">
+            <h3>Consonants</h3>
+        </div>
+        <div >
+            {% for consonant  in consonants %}
+                <span class="tile" onclick="letterTracing('{{consonant}}')">{{consonant}}</span>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="tracingArea" style="display: none;">
+        <canvas id="myCanvas" width="500" height="500"></canvas>
+        <button type="button" onclick="letterTracing('show',false)">Back</button>
+
+    </div>
+    
+{% endblock %}
